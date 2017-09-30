@@ -11,6 +11,12 @@ Slow-to-render HTML elements can be expensive (hosting) and unavoidable (technic
 
 GetSchwifty is all about quick responses by utilizing background jobs to do the rendering for your and delivering it to the client with ActionCable.
 
+## Extracted from HireLoop
+
+get_schwifty was extracted from [HireLoop.io](https://www.hireloop.io), a platform for a more human hiring experience.
+
+Make hiring delightful by closing the loop between hiring managers and every applicant. Automate the trival tasks associated with screening job applicants, lowering the barrier for easy and clear communication.
+
 ## Installation
 Add this line to your application's Gemfile:
 
