@@ -11,6 +11,11 @@ Slow-to-render HTML elements can be expensive (hosting) and unavoidable (technic
 
 GetSchwifty is all about quick responses by utilizing background jobs to do the rendering for your and delivering it to the client with ActionCable.
 
+## Caveats
+
+- There is no gurantee that the content will load. If your background job queue get's backed up, you'll be not showing content anytime soon.
+- Don't cache the view's which use the `get_schwifty` helper. You're fine to cache the content within the rendered partial, however. I may remove this limitation with a configuration option.
+
 ## Extracted from HireLoop
 
 get_schwifty was extracted from [HireLoop.io](https://www.hireloop.io), a platform for a more human hiring experience.
