@@ -15,6 +15,7 @@ class SystemTest < ApplicationSystemTestCase
     visit root_path
 
     within ".mr-bulldops", wait: 20 do
+      refute_selector ".double-x-schwifty-1"
       assert_selector ".double-x-schwifty-11"
       assert_selector ".double-x-schwifty-201"
     end
