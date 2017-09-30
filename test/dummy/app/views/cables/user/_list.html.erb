@@ -1,0 +1,8 @@
+<div class="mr-bulldops">
+  <% users.find_each do |user| %>
+    <div class="double-x-schwifty-<%= user.id %>">
+      ID: <%= user.id %>
+      Created: <%= user.created_at %>
+    </div>
+  <% end %>
+</div>

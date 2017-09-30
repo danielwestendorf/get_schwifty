@@ -1,0 +1,12 @@
+<%= get_schwifty "calculator#fibonacci" do %>
+  <p>
+    This will get displayed while the cable is waiting to get schwifty.
+    Maybe markup for a loading animation?
+  </p>
+<%- end %>
+
+<%= get_schwifty "user#list", { min_id: 10 } do %>
+  <p>
+    The first 10,000 users which have an id greater than 10 will show up here.
+  </p>
+<%- end %>

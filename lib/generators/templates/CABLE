@@ -1,0 +1,38 @@
+===============================================================================
+
+How to use your cable:
+
+  1. Use the get_schwifty view helper to insert the cable into your markup.
+
+      <%= get_schwifty "dashboard#fibonacci" do %>
+        <p>
+          This will get displayed while the cable is waiting to get schwifty.
+          Maybe markup for a loading animation?
+        </p>
+      <%- end %>
+
+  2. Update your cable action to implement the slow performing code. This code
+     will get schwifty in your background job queue.
+
+      # app/cables/dashboard.rb
+      def fibonacci
+        n = SecureRandom.rand(20..40)
+        calculated = calculate_fibonacci(n)
+        stream partial: "dashboard/fibonacci", locals: { calculated: calculated, n: n }
+      end
+
+      private
+
+      def calculate_fibonacci(n)
+        return n if n <= 1
+        calculate_fibonacci( n - 1 ) + calculate_fibonacci( n - 2 )
+      end
+
+  3. Implement the partial view for the cable action.
+
+      # app/views/cables/dashboard/_fibonacci.html.erb
+      <p>
+        Fibonacci of <%= n %>: <%= calculated %>
+      </p>
+
+===============================================================================

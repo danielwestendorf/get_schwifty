@@ -1,0 +1,26 @@
+===============================================================================
+
+Some setup you must do manually if you haven't yet:
+
+  1. Restart your server. app/cables has been added to the load path, and it
+     is necessary to restart your web server and any non-async job queues.
+
+     ActionCable requires that you use a servers such as Puma as your development
+     webserver.
+
+  2. Ensure you're using a shared cache store. Rails by default uses an
+     in-memory cache store, which can't be accessed between processes.
+     http://guides.rubyonrails.org/caching_with_rails.html#activesupport-cache-filestore
+
+       # config/environments/development.rb
+       config.cache_store = :file_store, "tmp/cache"
+
+  3. Add the get_schwifty javascript to your application.js
+
+       //= require get_schwifty
+
+  4. Setup your first cable to get schwifty
+
+       rails g get_schwifty:cable Dashboard fibonacci
+
+===============================================================================
