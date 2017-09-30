@@ -1,0 +1,8 @@
+
+language: ruby
+rvm:
+  - "2.4.2"
+script:
+  - bundle exec rake test
+addons:
+  chrome: stable
