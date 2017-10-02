@@ -7,5 +7,5 @@ script:
 addons:
   chrome: stable
 before_install:
-  - # start your web application and listen on `localhost`
-  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+  - wget http://chromedriver.storage.googleapis.com/2.31/chromedriver_linux64.zip
+  - unzip chromedriver_linux64.zip
