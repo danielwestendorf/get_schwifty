@@ -1,0 +1,14 @@
+sudo: required
+dist: trusty
+language: ruby
+rvm:
+  - "2.4"
+script:
+  - bundle exec rake test
+addons:
+  chrome: stable
+before_install:
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install chromium-chromedriver
+  - export PATH=$PATH:/usr/lib/chromium-browser/
