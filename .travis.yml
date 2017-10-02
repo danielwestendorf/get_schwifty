@@ -11,3 +11,4 @@ before_install:
 before_install:
   - sudo apt-get update
   - sudo apt-get install chromium-chromedriver
+  - export PATH=$PATH:/usr/lib/chromium-browser/
