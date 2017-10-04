@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 module GetSchwifty
   module Generators
+    # :nodoc
     class CableGenerator < Rails::Generators::NamedBase
       source_root File.expand_path("../../templates", __FILE__)
       argument :actions, type: :array, default: [], banner: "action action"

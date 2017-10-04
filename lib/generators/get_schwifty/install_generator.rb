@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 module GetSchwifty
   module Generators
+    # :nodoc
     class InstallGenerator < Rails::Generators::Base
       source_root File.expand_path("../../templates", __FILE__)
 
@@ -31,7 +34,7 @@ module GetSchwifty
       end
 
       def autoload_cables_path
-       application %(config.autoload_paths << config.root.join("app", "cables"))
+        application %(config.autoload_paths << config.root.join("app", "cables"))
       end
 
       def copy_get_schwifty_channel_js
