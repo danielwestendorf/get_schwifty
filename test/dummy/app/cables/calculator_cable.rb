@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CalculatorCable < BaseCable
   def fibonacci
     n = current_user.fibonacci
@@ -9,6 +11,6 @@ class CalculatorCable < BaseCable
 
   def calculate_fibonacci(n)
     return n if n <= 1
-    calculate_fibonacci( n - 1 ) + calculate_fibonacci( n - 2 )
+    calculate_fibonacci(n - 1) + calculate_fibonacci(n - 2)
   end
 end

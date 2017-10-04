@@ -1,4 +1,6 @@
-$:.push File.expand_path("../lib", __FILE__)
+# frozen_string_literal: true
+
+$LOAD_PATH.push File.expand_path("../lib", __FILE__)
 
 # Maintain your gem's version:
 require "get_schwifty/version"
@@ -9,10 +11,9 @@ Gem::Specification.new do |s|
   s.version     = GetSchwifty::VERSION
   s.authors     = ["Daniel Westendorf"]
   s.email       = ["daniel@prowestech.com"]
-  s.summary     = %q{Render view partials with ActiveJob and ActionCable.}
-  s.description = %q{
-                    Offload the rendering of slow view partials with ActiveJob and ActionCable to reduce page load times.
-                  }
+  s.summary     = "Render view partials with ActiveJob and ActionCable."
+  s.description = "Offload the rendering of slow view partials with ActiveJob and ActionCable"\
+                  " to reduce page load times."
   s.homepage    = "https://github.com/danielwestendorf/get_schwifty"
   s.license     = "MIT"
 
@@ -24,4 +25,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "selenium-webdriver"
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "redis"
+  s.add_development_dependency "rubocop", "~> 0.49"
 end

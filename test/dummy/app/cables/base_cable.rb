@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Base cable class to inherit from when getting schwifty
 class BaseCable < GetSchwifty::Cable::Base
   # Access to pundit helper methods for authorization

@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 module GetSchwifty
   module Cable
+    # :nodoc
     class Base
       attr_reader :schwifty_job_id, :identifiers, :params
 

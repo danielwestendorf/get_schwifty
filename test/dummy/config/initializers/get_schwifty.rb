@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # GetSchwifty configuration initializer
 # Use this file to configure GetSchwifty for your needs
 GetSchwifty.configure do |config|

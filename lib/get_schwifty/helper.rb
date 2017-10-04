@@ -1,8 +1,9 @@
 module GetSchwifty
+  # :nodoc
   module Helper
     def get_schwifty(route, params = nil, &blk)
       id = SecureRandom.hex
-      Rails.cache.write("get_schwifty:#{id}", route, expires_in: 10.minutes)
+      Rails.cache.write("get_schwifty:#{id}", route)
 
       opts = {
         "data-get-schwifty" => id

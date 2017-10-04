@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 module GetSchwifty
+  # :nodoc
   module Channel
     def subscribed
       reject if route.blank?
