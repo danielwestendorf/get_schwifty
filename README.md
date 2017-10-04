@@ -21,7 +21,7 @@ get_schwifty was extracted from [HireLoop.io](https://www.hireloop.io), a platfo
 
 Make hiring delightful by closing the loop between hiring managers and every applicant. Automate the trival tasks associated with screening job applicants, lowering the barrier for easy and clear communication.
 
-![](https://travis-ci.org/danielwestendorf/get_schwifty.svg?branch=master)
+[![CI](https://travis-ci.org/danielwestendorf/get_schwifty.svg?branch=master)](https://travis-ci.org/danielwestendorf/get_schwifty) [![Gem Version](https://badge.fury.io/rb/get_schwifty.svg)](https://badge.fury.io/rb/get_schwifty)
 
 ## Installation
 Add this line to your application's Gemfile:
