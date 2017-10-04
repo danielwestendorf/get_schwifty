@@ -12,3 +12,9 @@ before_install:
   - sudo apt-get update
   - sudo apt-get install chromium-chromedriver
   - export PATH=$PATH:/usr/lib/chromium-browser/
+
+deploy:
+  provider: rubygems
+  api_key: "vAXYuHB18+AmhTB9364EV7U+iwKOC/lU2CRnLMGfLEjR6Q3UtWIJg2kjxb4Vrq7Wjvy07OQYmqmndKzZz5wwE/TJey1z6y714AGJMpghFaRyKMnclher9hJKRiqrU4FteX4fwrDgJ0VuV127ccGzGaUqgvmclKvaDUaOJC9jo+UYnI4hQ8xD+eitXaCqKKgScI+Xkq6Xtv/yjIBhtlcUSqppAJTRavG0nmG1Yy80RUYJUXPfmLX8OIoAxfUyZrkoW0rNnH8hcmLAB6whYPAbnqihBmiV/F45mV0u0pHuPGLCLhreYcChgF8NNKkQsJiC4mr7zH2qf6CasxJzHyko2S6bdUhTq/rongRzWya7fZOW9ajRKgQ89kMaHmraOIe4OzbzPK12BJIXpYah7SKpqHsiXpEaxFC3kRzUWeSIpmo5aWptUAdR5/VEjy37VHY3DIzEv1X29OVujgtp4RXqWWPAlmoVrR662e4gyVsaUAnVlaHK2YGMWd+TGnsHlG7eCJFg5a1vgRoWrjaiD5MWEW8soeXL/6abvQkeRtrGUR/XM2gTqMUSriNdj2WjYoKOcbr2QVedAjIjmsuXE5DMHOE8AS1Bcidpb9IwlzJf1z8kCtebsUYxAabmNy8IRZ/KgqojZVADFg886TjBgmVfTtW+F9el+m1HDLHTGYpIK1g="
+  on:
+    tags: true
