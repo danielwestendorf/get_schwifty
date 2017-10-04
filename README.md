@@ -1,15 +1,17 @@
-# GetSchwifty
+# get_schwifty
 >Oh, yeah!
 You gotta get schwifty.
 You gotta get schwifty in here.
 
-GetSchwifty is a Rails plugin for rendering slow view partials in a background job and sending them to the client over ActionCable websockets.
+get_schwifty is a Rails plugin for rendering slow view partials in a background job and sending them to the client over ActionCable websockets.
+
+[![CI](https://travis-ci.org/danielwestendorf/get_schwifty.svg?branch=master)](https://travis-ci.org/danielwestendorf/get_schwifty) [![Gem Version](https://badge.fury.io/rb/get_schwifty.svg)](https://badge.fury.io/rb/get_schwifty)
 
 ## Justification
 
 Slow-to-render HTML elements can be expensive (hosting) and unavoidable (technical debt, slow libs, expensive db queries, etc). Rendering in-line in your web server consumes a connection which could be serving other clients. Sometimes it's better to just return a minimal page quickly, and let the data backfill as it's generated.
 
-GetSchwifty is all about quick responses by utilizing background jobs to do the rendering for your and delivering it to the client with ActionCable.
+get_schwifty is all about quick responses by utilizing background jobs to do the rendering for your and delivering it to the client with ActionCable.
 
 ## Caveats
 
@@ -21,7 +23,6 @@ get_schwifty was extracted from [HireLoop.io](https://www.hireloop.io), a platfo
 
 Make hiring delightful by closing the loop between hiring managers and every applicant. Automate the trival tasks associated with screening job applicants, lowering the barrier for easy and clear communication.
 
-[![CI](https://travis-ci.org/danielwestendorf/get_schwifty.svg?branch=master)](https://travis-ci.org/danielwestendorf/get_schwifty) [![Gem Version](https://badge.fury.io/rb/get_schwifty.svg)](https://badge.fury.io/rb/get_schwifty)
 
 ## Installation
 Add this line to your application's Gemfile:
@@ -49,12 +50,12 @@ Follow the instructions printed.
 
 ## Usage
 
-Generate your first GetSchwifty Cable
+Generate your first get_schwifty Cable
 ```bash
 $ rails generate get_schwifty:cable Calculator fibonacci
 ```
 
-Cables are a place to put your data access logic. Think Controllers for each GetSchwifty cable.
+Cables are a place to put your data access logic. Think Controllers for each get_schwifty cable.
 ```ruby
 # app/cables/calculator_cable.rb
 
@@ -84,7 +85,7 @@ When the data has been queried/generated, the partial is rendered. `stream` is a
 
 ```
 
-Lastly, we need to tell the app where to render this chunk of HTML. GetSchwifty uses a similar routing syntax to Rails routes of `cablecontrollername#action`.
+Lastly, we need to tell the app where to render this chunk of HTML. get_schwifty uses a similar routing syntax to Rails routes of `cablecontrollername#action`.
 
 ```erb
 # app/views/yourpage.html.erb
@@ -102,7 +103,7 @@ Load the page, and you should get the whole page back quickly, while the Fibonac
 
 ### Identifiers & Params
 
-Random data isn't very useful. Unauthenticated data isn't very cool either. Usually in Rails data scoping belongs starts at a current_user method. GetSchwifty will make any identefiers or params made available in the channel subscription within your cables. Let's take a look at an example.
+Random data isn't very useful. Unauthenticated data isn't very cool either. Usually in Rails data scoping belongs starts at a current_user method. get_schwifty will make any identefiers or params made available in the channel subscription within your cables. Let's take a look at an example.
 
 #### Identifiers
 Here we'll find the current user. This is copied form the [Rails Guides](http://guides.rubyonrails.org/action_cable_overview.html#connection-setup).
