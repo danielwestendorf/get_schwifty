@@ -4,6 +4,13 @@ require "get_schwifty/job"
 require "get_schwifty/cable/base"
 
 module GetSchwifty
+  mattr_accessor :allow_rerender
+  @@allow_rerender = true
+
+  def self.configure
+    yield self
+  end
+
   class Engine < ::Rails::Engine
     config.assets.paths += [File.expand_path("../../app/assets/javascripts", __FILE__)] if config.respond_to?(:assets)
 
