@@ -5,6 +5,10 @@ module GetSchwifty
 
       desc "Installs required files for getting schwifty in here"
 
+      def copy_initializer
+        template "get_schwifty.rb", "config/initializers/get_schwifty.rb"
+      end
+
       def copy_controller
         template "controllers/get_schwifty_controller.rb", "app/controllers/get_schwifty_controller.rb"
       end

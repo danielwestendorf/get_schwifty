@@ -8,7 +8,7 @@ module GetSchwifty
     end
 
     def rendered
-      Rails.cache.write(channel_name, nil)
+      Rails.cache.write(channel_name, nil) unless GetSchwifty.allow_rerender
     end
 
     def route

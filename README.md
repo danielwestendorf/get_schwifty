@@ -14,7 +14,6 @@ GetSchwifty is all about quick responses by utilizing background jobs to do the 
 ## Caveats
 
 - There is no gurantee that the content will load. If your background job queue get's backed up, you'll be not showing content anytime soon.
-- Don't cache the view's which use the `get_schwifty` helper. You're fine to cache the content within the rendered partial, however. I may remove this limitation with a configuration option.
 
 ## Extracted from HireLoop
 
