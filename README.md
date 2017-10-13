@@ -75,7 +75,7 @@ class CalculatorCable < BaseCable
 end
 ```
 
-When the data has been queried/generated, the partial is rendered. `stream` is a wrapper around the normal Rails `render`.
+When the data has been queried/generated, the partial is rendered. `stream` is a wrapper around the normal Rails `render`. Want to redirect to another location? use the pass the path or URL to the `redirect` method.
 
 ```erb
 # app/views/cables/calculator/_fibonacci.html.erb
