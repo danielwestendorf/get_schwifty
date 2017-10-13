@@ -22,4 +22,11 @@ class SystemTest < ApplicationSystemTestCase
       assert_selector ".double-x-schwifty-201"
     end
   end
+
+  test "redirection" do
+    visit demos_path
+
+    # find ".rendered", wait: 10
+    assert_selector ".rendered", wait: 10
+  end
 end

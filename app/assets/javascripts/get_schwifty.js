@@ -8,7 +8,23 @@ GetSchwifty = function(app) {
       bubbles: true
     });
     el.dispatchEvent(event)
-  };
+  }
+
+  function replaceContent(schwiftyJobId, oldEl, response) {
+    dispatchEvent('render:before', oldEl, { schwiftyJobId: schwiftyJobId, response: response });
+
+    var newContent = document.createRange().createContextualFragment(response.body);
+    var newEl = newContent.firstChild;
+    oldEl.parentNode.replaceChild(newContent, oldEl);
+
+    dispatchEvent('render:after', newEl, { schwiftyJobId: schwiftyJobId, html: response });
+  }
+
+  function redirectTo(schwiftyJobId, oldEl, response) {
+    dispatchEvent('redirect:before', oldEl, { schwiftyJobId: schwiftyJobId, response: response });
+
+    window.location = response.body;
+  }
 
   return {
     showMeWhatYouGot: function(selector) {
@@ -23,14 +39,15 @@ GetSchwifty = function(app) {
         var subscription = Object.assign({ channel: "GetSchwiftyChannel", id: schwiftyJobId }, schwiftyParams);
 
         var cable = _App.cable.subscriptions.create(subscription, {
-          received: function(html) {
-            dispatchEvent('render:before', el, { schwiftyJobId: schwiftyJobId, html: html });
+          received: function(response) {
 
-            var newContent = document.createRange().createContextualFragment(html);
-            var newEl = newContent.firstChild;
-            el.parentNode.replaceChild(newContent, el)
-
-            dispatchEvent('render:after', newEl, { schwiftyJobId: schwiftyJobId, html: html });
+            switch (response.status) {
+              case 302:
+              redirectTo(schwiftyJobId, el, response);
+              break;
+              default:
+              replaceContent(schwiftyJobId, el, response);
+            }
 
             cable.perform('rendered');
             cable.unsubscribe();

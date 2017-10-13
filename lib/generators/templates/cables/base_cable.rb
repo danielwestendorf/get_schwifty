@@ -2,6 +2,7 @@
 
 # Base cable class to inherit from when getting schwifty
 class BaseCable < GetSchwifty::Cable::Base
+  include Rails.application.routes.url_helpers
   # Access to pundit helper methods for authorization
   # include Pundit
 
